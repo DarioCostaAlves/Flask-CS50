@@ -7,7 +7,8 @@ SPORTS = [
     "Surf",
     "Football",
     "Calisthenics",
-    "Scuba Diving"
+    "Scuba Diving",
+    "Golf"
 ]
 
 @app.route("/")
@@ -17,7 +18,7 @@ def index():
 @app.route("/register", methods=["POST"])
 def register():
     #Validating submission
-    if not request.form.get("name") or request.form.get("sport") not in ["Surf", "Football", "Calisthenics", "Scuba Diving"]:
+    if not request.form.get("name") or request.form.get("sport") not in SPORTS:
         return render_template("failure.html")
 
     #Confirm registration
